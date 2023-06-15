@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="icon" href="data:,">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Şahin Elektronik</title>
+    <style>
+        h1 {
+            color: darkblue
+        }
+
+        body {
+            background: #DA22FF; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #9733EE, #DA22FF); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #9733EE, #DA22FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .grid-container {
+
+            display: grid;
+            grid-template-columns:1fr 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 10px auto;
+            padding: 10px;
+            text-align: left;
+
+        }
+
+        img {
+            align: center;
+            width: 100%;
+            border: 4px solid;
+
+        }
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+
+        }
+
+
+
+        .row {
+            background-color: #FBF8BE;
+            border-radius: 15px;
+        }
+
+        .card-body {
+            background-color: white;
+            margin: 20px;
+            border-style: solid
+        }
+
+        .ProductCard {
+            margin: 15px
+        }
+
+        .p {
+            margin: 10px
+        }
+
+
+        .container {
+            width: 900px;
+            margin: 0 auto;
+            text-align: left;
+
+        }
+
+
+        .row1 {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+
+        .content {
+            width: 1250px;
+            height: 590px;
+            float: right;
+            margin-top: 20px;
+        }
+
+         .sidebar {
+            width: 250px;
+            height: 2500px;
+            float: left;
+            background: #4b6cb7; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #4b6cb7, #182848); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #4b6cb7, #182848);
+            position: relative;
+            padding: 24px;
+            border-radius: 25px;
+        }
+
+        .wrap {
+            width: 1500px;
+            margin: 0 auto;
+        }
+
+        .titlefilter {
+            color: white;
+            font-size: 2rem;
+            text-align: center;
+            text-transform: capitalize;
+            margin-bottom: 2rem;
+        }
+
+        .sidebar .input-box-wrapper {
+            position: relative;
+        }
+
+        .input-box-wrapper .box {
+            position: relative;
+            align-items: center;
+            border: 1px solid #ffffff;
+            border-bottom: 0;
+            padding: 14px 10px;
+        }
+
+        .input-box-wrapper .box:first-child {
+            border-radius: 15px 15px 0 0;
+        }
+
+        .input-box-wrapper .box:last-child {
+            border-radius: 0 0 15px 15px;
+            border-bottom: 1px solid #ffffff;
+        }
+
+        .input-box-wrapper .box label {
+            cursor: pointer;
+            color: white;
+            text-transform: capitalize;
+        }
+
+        .checkbox1, .checkbox2, .checkbox3 {
+            position: relative;
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+        }
+
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.548);
+        }
+
+        .modal form {
+            position: relative;
+            min-width: 30%;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            background: white;
+            border-radius: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        #modal-kapat {
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: gray;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        #modal-kapat:hover {
+            background: red;
+        }
+
+        .modal form input {
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+
+
+
+    </style>
+</head>
+
+
+<body>
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="row2">
+            <button type="button5" class="btn btn-primary" onClick="location.href='/home'">Anasayfa</button>
+            <button type="button5" class="btn btn-primary" id="modal-ac">Admin</button>
+            <div class="modal">
+                <form>
+                    <h3 id="modal-kapat">x</h3>
+                    <label>Kullanıcı Adı</label>
+                    <input type="text" id="username" placeholder="Username"/>
+                    <label>Şifre</label>
+                    <input type="password" id="password" placeholder="Password"/>
+                    <button type="button6" id="girisButon" class="btn btn-primary">GİRİŞ</button>
+                </form>
+            </div>
+        </div>
+        <form class="d-flex">
+            <input class="form-control me-2" type="text" id="search-input" placeholder="Search">
+        </form>
+    </div>
+    </div>
+
+</nav>
+
+<div class="wrap">
+    <div class="content">
+
+        <div class="container">
+            <div class="row1">
+                <button type="button1" class="btn btn-primary" onClick="location.href='/fiyatArtan'">Artan Fiyat</button>
+                <button type="button2" class="btn btn-primary" onClick="location.href='/fiyatAzalan'">Azalan Fiyat
+                </button>
+                <button type="button3" class="btn btn-primary" onClick="location.href='/puanArtan'">Artan Puan</button>
+                <button type="button4" class="btn btn-primary" onClick="location.href='/puanAzalan'">Azalan Puan</button>
+            </div>
+        </div>
+
+
+        <div class="grid-container">
+            {% for row in rows %}
+            <div class="row">
+                <div class="columns-3">
+                    <div class="ProductCard" style="width: 18rem;">
+                        <a href="pcDetails/id={{row['pc_id']}}" target="_blank"><img src='{{row["pc_imglink"]}}'
+                                                                                     class="center" alt="..."
+                                                                                     style="width:250px;height: 250px;"></a>
+                        <div class="card-body mt-3">
+                            <h6 class="card-title" style="text-align:left">{{row["pc_ad"]}}</h6>
+                            <strong>
+                                <p class="card-text">Fiyat:{{row["fiyat"]}} TL</p>
+                                <p class="card-text">Puan:{{row["puan"]}}</p>
+                            </strong>
+
+                            <a href='{{row["pc_link"]}}' class="btn btn-primary" target="_blank">{{row["site_ad"]}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="input-box-wrapper">
+            <div class="box">
+                <p class="titlefilter">Marka Filtre</p>
+                <br>
+                {% for pc_name in pc_names %}
+                <input type="checkbox" value='{{pc_name["marka"]}}' class="checkbox1" id='{{loop.index0}}'>
+                <label for='{{loop.index0}}'>{{pc_name["marka"]}}</label>
+                <br>
+                {% endfor %}
+                <button class="btn btn-primary" id="filtrebuton"
+                        style="margin:20px 0 0 15px">
+                    FİLTREYİ UYGULA
+                </button>
+            </div>
+            <div class="box">
+                <p class="titlefilter">İşlemci Filtre</p>
+                <br>
+                {% for islemci_tipi in islemci_tipleri %}
+                <input type="checkbox" value='{{islemci_tipi["islemci_tipi"]}}' class="checkbox2" id='{{loop.index}}'>
+                <label for='{{loop.index}}'>{{islemci_tipi["islemci_tipi"]}}</label>
+                <br>
+                {% endfor %}
+                <button class="btn btn-primary" id="filtrebuton2"
+                        style="margin:20px 0 0 15px">
+                    FİLTREYİ UYGULA
+                </button>
+            </div>
+
+            <div class="box">
+                <p class="titlefilter">Ram Filtre</p>
+                <br>
+                {% for ram in ram_tipleri %}
+                <input type="checkbox" value='{{ram["ram"]}}' class="checkbox3" id='{{loop.index2}}'>
+                <label for='{{loop.index2}}'>{{ram["ram"]}}</label>
+                <br>
+                {% endfor %}
+                <button class="btn btn-primary" id="filtrebuton3"
+                        style="margin:20px 0 0 15px">
+                    FİLTREYİ UYGULA
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    //dinamik arama
+    document.querySelector('#search-input').addEventListener('input',filterList);
+
+    function filterList() {
+        const searchInput = document.querySelector('#search-input');
+        const filter = searchInput.value.toLowerCase();
+        const listItems = document.querySelectorAll('.row');
+
+        listItems.forEach((item)=>{
+            let text = item.textContent;
+            if (text.toLowerCase().includes(filter.toLowerCase())){
+                item.style.display = '';
+            }
+            else
+                item.style.display = 'none';
+        })
+
+    }
+
+
+
+    //login paneli
+    var sifre = "1234";
+    var kullanici_ad = "admin";
+
+    var text_ad;
+    var text_sifre;
+
+
+    const modalBtn = document.getElementById("modal-ac");
+    const modal = document.querySelector(".modal");
+    const modalKapat = document.getElementById("modal-kapat");
+    const girisButon = document.getElementById("girisButon");
+
+    modalBtn.addEventListener("click", () => {
+        modal.style.display = "flex";
+        girisButon.addEventListener("click", function () {
+            text_ad = document.getElementById("username").value;
+            text_sifre = document.getElementById("password").value;
+
+            if (text_ad == "admin" && text_sifre == "1234") {
+                alert("Giriş Başarılı");
+                console.log(text_ad);
+                console.log(text_sifre);
+                window.location.href = "admin";
+            } else {
+                alert("Giriş Başarısız");
+            }
+        });
+    });
+
+    modalKapat.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    //marka filtre
+    var listArray = [];
+    var checkboxes = document.querySelectorAll(".checkbox1");
+
+    for (var checkbox of checkboxes) {
+        checkbox.addEventListener('click', function () {
+            if (this.checked == true) {
+                listArray.push(this.value);
+                var btn = document.getElementById("filtrebuton");
+                btn.onclick = function () {
+                    window.alert("Filtreleme yapılıyor...");
+                    window.location.href = "/filterBrand/"+listArray;
+                }
+
+            } else {
+                listArray = listArray.filter(e => e !== this.value);
+
+            }
+        })
+    }
+
+
+    //islemci filtre
+    var listArray_islemci = [];
+    var checkboxes_islemci = document.querySelectorAll(".checkbox2");
+
+    for (var checkbox of checkboxes_islemci) {
+        checkbox.addEventListener('click', function () {
+            if (this.checked == true) {
+                listArray_islemci.push(this.value);
+                var btn = document.getElementById("filtrebuton2");
+                btn.onclick = function () {
+                    window.alert("Filtreleme yapılıyor...");
+                    window.location.href = "/filterIslemci/"+listArray_islemci;
+                }
+            } else {
+                listArray = listArray.filter(e => e !== this.value);
+            }
+        })
+    }
+
+     //ram filtre
+    var listArray_ram = [];
+    var checkboxes_ram = document.querySelectorAll(".checkbox3");
+
+    for (var checkbox of checkboxes_ram) {
+        checkbox.addEventListener('click', function () {
+            if (this.checked == true) {
+                listArray_ram.push(this.value);
+                var btn = document.getElementById("filtrebuton3");
+                btn.onclick = function () {
+                    window.alert("Filtreleme yapılıyor...");
+                    window.location.href = "/filterram/"+listArray_ram;
+                }
+            } else {
+                listArray_ram = listArray_ram.filter(e => e !== this.value);
+            }
+        })
+    }
+
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

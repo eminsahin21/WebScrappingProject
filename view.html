@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <style>
+        table,tr,td{
+            border:3px solid black;
+            border-collapse:collapse;
+        }
+
+
+    </style>
+
+
+</head>
+
+<body>
+
+<h3>
+    BİLGİSAYAR BİLGİLERİ
+</h3>
+
+<a href="/">Geri dönmek için tıklayınız</a>
+</body>
+
+<table>
+    <tr>
+
+        <td>Fiyat</td>
+        <td>Puan</td>
+        <td>Site</td>
+        <td>Link</td>
+    </tr>
+
+    {% for row in rows %}
+    <tr>
+
+        <td>{{row["fiyat"]}}</td>
+        <td>{{row["puan"]}}</td>
+        <td>{{row["site_ad"]}}</td>
+        <td>{{row["pc_link"]}}</td>
+    </tr>
+    {% endfor %}
+    <br>
+    </br>
+</table>
+
+
+</html>
